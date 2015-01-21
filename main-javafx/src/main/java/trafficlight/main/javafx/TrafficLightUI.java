@@ -11,15 +11,19 @@ public class TrafficLightUI extends VBox {
 
 		int oneThird = height / 3;
 		LightUI redUI = new LightUI(width, oneThird, Color.RED);
-		getChildren().add(redUI);
+		addChild(redUI);
 		LightUI yellowUI = new LightUI(width, oneThird, Color.ORANGE);
-		getChildren().add(yellowUI);
+		addChild(yellowUI);
 		LightUI greenUI = new LightUI(width, oneThird, Color.GREEN);
-		getChildren().add(greenUI);
+		addChild(greenUI);
 
 		trafficLight.addRedLightObserver(redUI);
 		trafficLight.addGreenLightObserver(greenUI);
 		trafficLight.addYellowLightObserver(yellowUI);
+	}
+
+	private void addChild(LightUI redUI) {
+		getChildren().add(redUI);
 	}
 
 }
