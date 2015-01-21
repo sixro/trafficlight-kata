@@ -18,7 +18,7 @@ public class LightUI extends Canvas implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		Light light = (Light) o;
+		final Light light = (Light) o;
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {

@@ -1,12 +1,10 @@
 package trafficlight.main.javafx;
 
-import java.util.*;
-
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.*;
-import trafficlight.app.TrafficLight;
+import trafficlight.app.*;
 
 public class Main extends Application {
 
@@ -24,10 +22,11 @@ public class Main extends Application {
 		TrafficLightUI trafficLightUI = new TrafficLightUI(DEFAULT_WIDTH, DEFAULT_HEIGHT, trafficLight);
 
 		createFrame(stage, trafficLightUI);
-		startTimer(trafficLight);
+		
+		new TickTimer(trafficLight, ONE_SECOND).start();
 	}
 
-	private void createFrame(Stage stage, TrafficLightUI trafficLightUI) {
+	private void createFrame(final Stage stage, TrafficLightUI trafficLightUI) {
 		stage.setTitle("Traffic Light");
 		stage.setScene(new Scene(trafficLightUI, DEFAULT_WIDTH, DEFAULT_HEIGHT));
 		stage.show();
@@ -38,15 +37,6 @@ public class Main extends Application {
 				System.exit(0);
 			}
 		});
-	}
-
-	private void startTimer(TrafficLight trafficLight) {
-		new Timer().scheduleAtFixedRate(new TimerTask() {
-			@Override
-			public void run() {
-				trafficLight.tick();
-			}
-		}, ONE_SECOND, ONE_SECOND);
 	}
 
 }
