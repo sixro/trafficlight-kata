@@ -23,23 +23,21 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.rumbo.self-training.trafficlight-kata</groupId>
+            <artifactId>app</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>compile</scope>
+        </dependency>
+
+        <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
 			<version>${android.platform.version.semantic}</version>
             <scope>provided</scope>
         </dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.11</version>
-			<scope>test</scope>
-		</dependency>
     </dependencies>
 
     <build>
-		<finalName>trafficlight</finalName>
-
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

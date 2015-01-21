@@ -1,16 +1,19 @@
 package com.rumbo.selftraining.trafficlightkata;
 
+import java.util.*;
+
+import trafficlight.app.*;
 import android.app.Activity;
-import android.graphics.PorterDuff;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.*;
-import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.view.SurfaceView;
 
 public class MainActivity extends Activity {
 
 	private static final String TAG = MainActivity.class.getSimpleName();
+	
+	private SurfaceView redLight;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,39 +21,37 @@ public class MainActivity extends Activity {
 		Log.i(TAG, "[onCreate]");
 
 		setContentView(R.layout.main);
+		
+		redLight = (SurfaceView) findViewById(R.id.redLight);
 
-		/*
-		if (LogUtils.isDebugEnabled(TAG))
-			Log.d(TAG, "[onCreate] setting onClick action to 'START' button...");
-		Button btnStart = (Button) findViewById(R.id.btnStart);
-		btnStart.setOnClickListener(new OnClickListener() {
+		final TrafficLight trafficLight = new TrafficLight(3, 2, 1);
+		trafficLight.addRedLightObserver(new Observer() {
 			@Override
-			public void onClick(View view) {
-				onStartButtonClick(view);
+			public void update(Observable o, Object arg) {
+				final Light light = (Light) o;
+				MainActivity.this.runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						redLight.setBackgroundColor(light.isOn() ? 0xffcc0000 : Color.BLACK);
+						redLight.invalidate();
+					}
+				});
 			}
 		});
-		btnStart.getBackground().setColorFilter(0xFF00FF00, PorterDuff.Mode.MULTIPLY);
+		SurfaceView yellowLight = (SurfaceView) findViewById(R.id.yellowLight);
+		yellowLight.setBackgroundColor(0xffff8800);
+		yellowLight.invalidate();
 
-		if (LogUtils.isDebugEnabled(TAG))
-			Log.d(TAG, "[onCreate] setting onClick action to 'Calibrate' button...");
-		Button btnCalibrate = (Button) findViewById(R.id.btnCalibrate);
-		btnCalibrate.setOnClickListener(new OnClickListener() {
+		SurfaceView greenLight = (SurfaceView) findViewById(R.id.greenLight);
+		greenLight.setBackgroundColor(0xff00cc00);
+		greenLight.invalidate();
+		
+		new Timer().scheduleAtFixedRate(new TimerTask() {
 			@Override
-			public void onClick(View view) {
-				onCalibrateButtonClick(view);
+			public void run() {
+				trafficLight.tick();
 			}
-		});
-
-		if (LogUtils.isDebugEnabled(TAG))
-			Log.d(TAG, "[onCreate] setting onClick action to 'Settings' button...");
-		Button btnSettings = (Button) findViewById(R.id.btnSettings);
-		btnSettings.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				onSettingsButtonClick(view);
-			}
-		});
-		*/
+		}, 1000, 1000);
 	}
 	
 }
