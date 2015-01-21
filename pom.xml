@@ -18,5 +18,6 @@
 
 	<modules>
 		<module>app</module>
+		<module>main-javafx</module>
 	</modules>
 </project>

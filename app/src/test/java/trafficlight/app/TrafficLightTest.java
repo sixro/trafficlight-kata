@@ -24,6 +24,9 @@ public class TrafficLightTest {
 
 		waitForTicks(1);
 		assertRed();
+
+		waitForTicks(3);
+		assertGreen();
 	}
 
 	private void assertRed() {

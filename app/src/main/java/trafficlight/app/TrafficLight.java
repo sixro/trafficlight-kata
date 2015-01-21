@@ -1,5 +1,7 @@
 package trafficlight.app;
 
+import java.util.Observer;
+
 public class TrafficLight {
 
 	private int redTicks;
@@ -22,7 +24,6 @@ public class TrafficLight {
 		this.yellow = new Light();
 		
 		this.ticks = 0;
-
 		transitionToRed();
 	}
 
@@ -45,8 +46,10 @@ public class TrafficLight {
 			transitionToGreen();
 		else if (ticks == redTicks + greenTicks)
 			transitionToYellow();
-		else if (ticks == redTicks + greenTicks + yellowTicks)
+		else if (ticks == redTicks + greenTicks + yellowTicks) {
 			transitionToRed();
+			ticks = 0;
+		}
 	}
 
 	private void transitionToRed() {
@@ -66,5 +69,17 @@ public class TrafficLight {
 		green.turnOn();
 		yellow.turnOn();
 	}
-	
+
+	public void addRedLightObserver(Observer observer) {
+		red.addObserver(observer);
+	}
+
+	public void addGreenLightObserver(Observer observer) {
+		green.addObserver(observer);
+	}
+
+	public void addYellowLightObserver(Observer observer) {
+		yellow.addObserver(observer);
+	}
+
 }

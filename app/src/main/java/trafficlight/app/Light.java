@@ -1,6 +1,8 @@
 package trafficlight.app;
 
-public class Light {
+import java.util.*;
+
+public class Light extends Observable {
 
 	private boolean on;
 
@@ -15,10 +17,26 @@ public class Light {
 
 	public void turnOn() {
 		on = true;
+		
+		notifyUpdate();
 	}
 
 	public void turnOff() {
 		on = false;
+
+		notifyUpdate();
 	}
 
+	private void notifyUpdate() {
+		setChanged();
+		notifyObservers();
+	}
+
+	@Override
+	public synchronized void addObserver(Observer o) {
+		super.addObserver(o);
+		
+		notifyUpdate();
+	}
+	
 }
