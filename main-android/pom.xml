@@ -81,6 +81,35 @@
 					</execution>
 				</executions>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>1.3.1</version>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<!-- NOTE: there are issues with android-maven-plugin if you use a more recent version of Maven than 3.1.1 -->
+								<requireMavenVersion>
+									<version>[3.1.1]</version>
+								</requireMavenVersion>
+								<!-- NOTE: you need that target compile is to 1.6, but you can use more recent JDKs -->
+								<requireJavaVersion>
+									<version>1.6</version>
+								</requireJavaVersion>
+								<requireOS>
+									<family>unix</family>
+								</requireOS>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 
 		<pluginManagement>
