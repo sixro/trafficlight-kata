@@ -4,7 +4,7 @@
 
 	<groupId>com.rumbo.self-training.trafficlight-kata</groupId>
 	<artifactId>parent</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -19,5 +19,6 @@
 	<modules>
 		<module>app</module>
 		<module>main-javafx</module>
+		<module>main-android</module>
 	</modules>
 </project>
