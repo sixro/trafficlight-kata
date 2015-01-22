@@ -91,7 +91,6 @@
 					<version>${android.plugin.version}</version>
 					<extensions>true</extensions>
 				</plugin>
-
 				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
@@ -103,20 +102,18 @@
 								<pluginExecution>
 									<pluginExecutionFilter>
 										<groupId>
-											com.jayway.maven.plugins.android.generation2
+											com.simpligility.maven.plugins
 										</groupId>
 										<artifactId>
 											android-maven-plugin
 										</artifactId>
 										<versionRange>
-											[3.6.0,)
+											[4.1.0,)
 										</versionRange>
 										<goals>
+											<goal>generate-sources</goal>
+											<goal>emma</goal>
 											<goal>proguard</goal>
-											<goal>
-												generate-sources
-											</goal>
-											<goal>consume-aar</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
