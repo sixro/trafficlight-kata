@@ -25,34 +25,6 @@
 			<artifactId>app</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<!--
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.4</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.3.2</version>
-		</dependency>
-		<dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.4</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-		  -->
 
 		<!-- == Testing ===================================== -->
 		<dependency>
@@ -100,26 +72,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!--
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.3.0</version>
-			<scope>test</scope>
-		</dependency>
-		  -->
 	</dependencies>
 
 	<build>
@@ -217,22 +169,6 @@
 		</plugins>
 	</build>
 
-	<!--
-	<scm>
-		<connection>scm:git:git@github.com:sixro/${project.artifactId}.git</connection>
-		<developerConnection>scm:git:git@github.com:sixro/${project.artifactId}.git</developerConnection>
-		<url>git@github.com:sixro/${project.artifactId}.git</url>
-		<tag>HEAD</tag>
-	</scm>
-
-	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
-	-->
-
 	<licenses>
 		<license>
 			<name>MIT License</name>
@@ -285,34 +221,6 @@
 						</executions>
 					</plugin>
 
-					<!--
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.2</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>ossrh</serverId>
-							<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-							<autoReleaseAfterClose>true</autoReleaseAfterClose>
-						</configuration>
-					</plugin>
-
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<version>1.5</version>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					-->
 				</plugins>
 			</build>
 		</profile>
